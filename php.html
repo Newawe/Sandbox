@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+
+		    var to_compile = {
+				"LanguageChoice": "8", //IMPORTANT -- CHANGE THIS FOR EACH LANGUAGE
+			    "Program": '<?php '+decodeURI(GetUrlValue("code")),
+			    "Input": "",
+			    "CompilerArgs" : ""
+		    };
+
+		    $.ajax ({
+			        url: "http://rextester.com/rundotnet/api",
+			        type: "POST",
+			        data: to_compile
+			    }).done(function(data) {
+				if(!JSON.parse(data).Error){
+			        document.write(JSON.parse(data).Result);
+				}else{document.write(JSON.parse(data).Error);}
+			    }).fail(function(data, err) {
+			        alert("fail " + JSON.stringify(data) + " " + JSON.stringify(err));
+		        });
+	    });
+function GetUrlValue(VarSearch){
+    var SearchString = window.location.search.substring(1);
+    var VariableArray = SearchString.split('&');
+    for(var i = 0; i < VariableArray.length; i++){
+        var KeyValuePair = VariableArray[i].split('=');
+        if(KeyValuePair[0] == VarSearch){
+            return KeyValuePair[1];
+        }
+    </script>
+    </head>
+
+
+
+
+</html>
