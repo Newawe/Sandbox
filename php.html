@@ -9,7 +9,7 @@
 
 
 		    var to_compile = {
-				"LanguageChoice": "8", //IMPORTANT -- CHANGE THIS FOR EACH LANGUAGE
+				"LanguageChoice": "8", //IMPORTANT -- SET THIS FOR EACH LANGUAGE
 			    "Program": '<?php '+decodeURI(GetUrlValue("code")),
 			    "Input": "",
 			    "CompilerArgs" : ""
@@ -34,7 +34,7 @@ function GetUrlValue(VarSearch){
         var KeyValuePair = VariableArray[i].split('=');
         if(KeyValuePair[0] == VarSearch){
             return KeyValuePair[1];
-        }
+        }}
     </script>
     </head>
 
