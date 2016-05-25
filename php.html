@@ -20,13 +20,14 @@
 			        type: "POST",
 			        data: to_compile
 			    }).done(function(data) {
-				if(!JSON.parse(data).Error){
+				if(JSON.parse(data).Result){
 			        document.write(JSON.parse(data).Result);
 				}else{document.write(JSON.parse(data).Error);}
 			    }).fail(function(data, err) {
 			        alert("fail " + JSON.stringify(data) + " " + JSON.stringify(err));
 		        });
 	    });
+
 function GetUrlValue(VarSearch){
     var SearchString = window.location.search.substring(1);
     var VariableArray = SearchString.split('&');
