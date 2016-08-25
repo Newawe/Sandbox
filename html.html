@@ -11,6 +11,9 @@
 		
 		
 		<script>
+		function showCode{
+			document.write(decodeURI(GetUrlValue('code')));
+		}
 		function GetUrlValue(VarSearch){
     var SearchString = window.location.search.substring(1);
     var VariableArray = SearchString.split('&');
@@ -21,7 +24,7 @@
         }
     }
 }
-			window.onload = document.write(decodeURI(GetUrlValue('code'))); //When the page loads, replace page with code
+			window.onload = showCode; //When the page loads, replace page with code
 		</script>
 	</body>
 </html>
